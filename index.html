@@ -1,14 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8"/>
 		<title>Princess Locator</title>
 	</head>
 	<body>
-		<p style="text-align:center; font-size:20pt">Princess Locator</p>
-		<textarea id="clueInput" placeholder="paste data here, separated by new line (enter)..." style="overflow:auto; width:40%; height:500px; border:1px solid #000000; resize:none; background:#D8D8D8"></textarea>
+		<div style="text-align:center; font:16pt normal">Princess Locator</div>
+		<div style="text-align:center; font:10pt normal">bby : congor</div>
+		<div style="height:10px"></div>
+		<textarea id="clueInput" placeholder="Paste data here, separated by new line (enter)... Will only work after you foind at least the princess is within 100 tiles. Example data : (425,300) After asking around, a traveler notified you that he saw her a while ago (The princess is within 100 Tiles !!)" style="overflow:auto; width:35%; height:500px; font:10pt consolas; border:1px solid #000000; resize:none; background:#D8D8D8"></textarea>
 		<div style="width:10px; display:inline-block"></div>
-		<div id="clueOutput" style="width:55%; height:500px; border:1px solid; display:inline-block; position:absolute">
+		<div style="width:60%; height:500px; border:1px solid; display:inline-block; position:absolute; background:#D8D8D8">
 			<span style="display:table; margin:auto">Result</span>
-			<textarea id="results" readonly style="overflow:auto; width:100%; height:96%; border:1px solid rgba(0, 0, 0, 0); resize:none; background:#D8D8D8"></textarea>
+			<div id="results" style="overflow:auto; width:100%; height:96%; background:#D8D8D8; font:10pt consolas"></div>
 		</div>
 		<script src="scripts/PrincessLocator.js"></script>
 	</body>
