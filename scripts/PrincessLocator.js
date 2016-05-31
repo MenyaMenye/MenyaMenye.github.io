@@ -11,7 +11,7 @@ function calculate() {
 	var finalResult = [];
 	var textResult = "";
 	for(var i=clues.length-1;i>=0;i--) {
-		if(clues[i].indexOf("The princess is within") == -1) clues.splice(i, 1);
+		if(clues[i].indexOf("The princess is within ") == -1) clues.splice(i, 1);
 	}
 	for(var i=clues.length-1;i>=0;i--) {
 		if(Number(clues[i].slice(clues[i].indexOf("is within ")+10, clues[i].indexOf(" Tiles"))) > 100) clues.splice(i, 1);
