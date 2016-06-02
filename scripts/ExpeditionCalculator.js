@@ -15,6 +15,10 @@ var keyMin = 0;
 var keyMax = 0;
 
 for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
+	document.getElementsByClassName("priceInput")[i].value = 100;
+}
+
+for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
 	document.getElementsByClassName("priceInput")[i].onchange = function () {calculate();};
 }
 
