@@ -63,7 +63,7 @@ function calculate() {
 	relicMin = 1 + weaponLevel*2 + survivalLevel;
 	relicMax = 2 + adventureLevel + weaponLevel*4 + armorLevel*1 + survivalLevel;
 	keyMin = Math.floor(armorLevel/3.5);
-	keyMax = Math.floor(armorLevel/2.5);
+	keyMax = Math.floor(armorLevel/2.5); //is thsi even correct?
 	document.getElementsByClassName("rewardsDiv")[0].innerHTML = "[Value : "+totalLevel+"] [Time : "+expeditionTime+" Minutes] [Gems : "+gemMin+"-"+gemMax+"] [Relics : "+relicMin+"-"+relicMax+"] [Keys : "+keyMin+"-"+keyMax+"]";
 	
 	cost[0] = 0;
