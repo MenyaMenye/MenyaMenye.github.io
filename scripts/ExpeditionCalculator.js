@@ -41,16 +41,13 @@ function calculate() {
 		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
 		prices[i] = prices[i] < 0 || prices[i] == "" ? 0 : prices[i];
 	}
-	
 	adventureLevel = adventureLevel < 0 ? 0 : adventureLevel;
 	weaponLevel = weaponLevel < 0 ? 0 : weaponLevel;
 	armorLevel = armorLevel < 0 ? 0 : armorLevel;
 	survivalLevel = survivalLevel < 0 ? 0 : survivalLevel;
-	
 	weaponLevel = weaponLevel > adventureLevel ? adventureLevel : weaponLevel;
 	armorLevel = armorLevel > adventureLevel ? adventureLevel : armorLevel;
 	survivalLevel = survivalLevel > adventureLevel ? adventureLevel : survivalLevel;
-	
 	document.getElementsByClassName("expeditionLevel")[0].innerHTML = "Adventure Lv. "+adventureLevel;
 	document.getElementsByClassName("expeditionLevel")[1].innerHTML = "Weapon Lv. "+weaponLevel;
 	document.getElementsByClassName("expeditionLevel")[2].innerHTML = "Armor Lv. "+armorLevel;
@@ -65,7 +62,6 @@ function calculate() {
 	keyMin = Math.floor(armorLevel/3.5);
 	keyMax = Math.floor(armorLevel/2.5); //is thsi even correct?
 	document.getElementsByClassName("rewardsDiv")[0].innerHTML = "[Value : "+totalLevel+"] [Time : "+expeditionTime+" Minutes] [Gems : "+gemMin+"-"+gemMax+"] [Relics : "+relicMin+"-"+relicMax+"] [Keys : "+keyMin+"-"+keyMax+"]";
-	
 	cost[0] = 0;
 	for(var i=1; i<=adventureLevel; i++) {
 		cost[0] += i * 1000 * prices[0];
@@ -75,7 +71,6 @@ function calculate() {
 		if(i > 4) cost[0] += (i-4) * 500 * prices[4];
 	}
 	document.getElementsByClassName("cost value")[0].innerHTML = cost[0];
-	
 	cost[1] = 0;
 	for(var i=1; i<=weaponLevel; i++) {
 		cost[1] += i * 1000 * prices[5];
@@ -85,7 +80,6 @@ function calculate() {
 		if(i > 4) cost[1] += (i-4) * 500 * prices[9];
 	}
 	document.getElementsByClassName("cost value")[1].innerHTML = cost[1];
-	
 	cost[2] = 0;
 	for(var i=1; i<=armorLevel; i++) {
 		cost[2] += i * 1000 * prices[10];
