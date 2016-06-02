@@ -2,24 +2,181 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Princess Locator</title>
+		<title>Miden Quest Online Expedition Calculator</title>
 	</head>
 	<body>
-		<div class="headerDiv">
-			<div class="pageTitle">Princess Locator</div>
-			<div class="pageSubTitle">bby : congor</div>
+		<div class="titleDiv">
+			<div class="title1">Miden Quest Online Expedition Calculator</div>
+			<div class="title2">By : CONGOR</div>
 		</div>
-		<div class="contentDiv">
-			<div class="inputContainer">
-				<div class="howTo">Paste clue in the box below, separated by new line (enter).<br>Will only work after you foind at least the princess is within 100 tiles.<br>Example valid data:<br>(425,300) After asking around, a traveler notified you that he saw her a while ago (The princess is within 100 Tiles !!)</div>
-				<textarea id="clueInput"></textarea>
+		<div class="priceDivTitle">Resources Price</div>
+		<div class="priceDiv">
+			<div class="resDiv">
+				<div class="resDivTitle">Fish</div>
+				<div class="resDivInput">
+					<div class="tierText">T1 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T2 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T3 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T4 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T5 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
 			</div>
-			<div class="resultContainer">
-				<div>Result</div>
-				<div id="results"></div>
+			<div class="resDiv">
+				<div class="resDivTitle">Ore</div>
+				<div class="resDivInput">
+					<div class="tierText">T1 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T2 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T3 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T4 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T5 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+			</div>
+			<div class="resDiv">
+				<div class="resDivTitle">Wood</div>
+				<div class="resDivInput">
+					<div class="tierText">T1 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T2 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T3 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T4 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T5 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+			</div>
+			<div class="resDiv">
+				<div class="resDivTitle">Plant</div>
+				<div class="resDivInput">
+					<div class="tierText">T1 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T2 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T3 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T4 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
+				<div class="resDivInput">
+					<div class="tierText">T5 : </div>
+					<textarea class="priceInput"></textarea>
+					<div class="ppText">pp</div>
+				</div>
 			</div>
 		</div>
-		<link rel="stylesheet" type="text/css" href="css/style.css"></link>
-		<script src="scripts/PrincessLocator.js"></script>
+		<div class="priceDivTitle">Expedition</div>
+		<div class="priceDiv">
+			<div class="resDiv">
+				<div class="expeditionLevel">Adventure Lv. 0</div>
+				<div class="buttonDiv">
+					<button class="buttonControl plusButton"><span>+</span></button>
+					<button class="buttonControl minusButton"><span>-</span></button>
+				</div>
+			</div>
+			<div class="resDiv">
+				<div class="expeditionLevel">Weapon Lv. 0</div>
+				<div class="buttonDiv">
+					<button class="buttonControl plusButton"><span>+</span></button>
+					<button class="buttonControl minusButton"><span>-</span></button>
+				</div>
+			</div>
+			<div class="resDiv">
+				<div class="expeditionLevel">Armor Lv. 0</div>
+				<div class="buttonDiv">
+					<button class="buttonControl plusButton"><span>+</span></button>
+					<button class="buttonControl minusButton"><span>-</span></button>
+				</div>
+			</div>
+			<div class="resDiv">
+				<div class="expeditionLevel">Survival Lv. 0</div>
+				<div class="buttonDiv">
+					<button class="buttonControl plusButton"><span>+</span></button>
+					<button class="buttonControl minusButton"><span>-</span></button>
+				</div>
+			</div>
+		</div>
+		<div class="rewardsDiv">[Value : 0] [Time : 20 Minutes] [Gems : 0-0] [Relics : 0-0] [Keys : 0-0]</div>
+		<div class="priceDivTitle">Expedition Cost</div>
+		<div class="priceDiv">
+			<div class="resDiv">
+				<div class="cost title">Fish Cost</div>
+				<div class="cost value">0</div>
+			</div>
+			<div class="resDiv">
+				<div class="cost title">Ore Cost</div>
+				<div class="cost value">0</div>
+			</div>
+			<div class="resDiv">
+				<div class="cost title">Wood Cost</div>
+				<div class="cost value">0</div>
+			</div>
+			<div class="resDiv">
+				<div class="cost title">Plant Cost</div>
+				<div class="cost value">0</div>
+			</div>
+		</div>
+		<div class="totalCost">Total cost : 0</div>
+		<link rel="stylesheet" type="text/css" href="css/ExpeditionCalculator.css"></link>
+		<script src="scripts/ExpeditionCalculator.js"></script>
 	</body>
 </html>
