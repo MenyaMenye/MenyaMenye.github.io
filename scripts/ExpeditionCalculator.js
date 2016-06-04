@@ -20,9 +20,9 @@ var relicPrice = 0;
 if(typeof Storage == undefined) assignDefaultPrices();
 else assignPricesFromStorage();
 
-for(var i=0; i<resCost.length; i++) {
-	resCost[i] = 0;
-}
+document.getElementsByClassName("rewardsDiv")[0].innerHTML = "[Value : "+totalLevel+"] [Time : "+expeditionTime+" Minutes] [Gems : "+gemMin+"-"+gemMax+"] [Relics : "+relicMin+"-"+relicMax+"] [Keys : "+keyMin+"-"+keyMax+"]";
+
+for(var i=0; i<resCost.length; i++) resCost[i] = 0;
 
 for(var i=0; i<document.getElementsByClassName("cost res").length; i++) {
 	if(i<5) {
