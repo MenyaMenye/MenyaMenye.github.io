@@ -17,28 +17,8 @@ var keyMax = 0;
 var gemPrice = 0;
 var relicPrice = 0;
 
-for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
-	if(i==0 || i==5 || i==10 || i==15) {
-		document.getElementsByClassName("priceInput")[i].value = 50;
-		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
-	}
-	else if(i==0+1 || i==5+1 || i==10+1 || i==15+1) {
-		document.getElementsByClassName("priceInput")[i].value = 100;
-		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
-	}
-	else if(i==0+2 || i==5+2 || i==10+2 || i==15+2) {
-		document.getElementsByClassName("priceInput")[i].value = 250;
-		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
-	}
-	else if(i==0+3 || i==5+3 || i==10+3 || i==15+3) {
-		document.getElementsByClassName("priceInput")[i].value = 750;
-		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
-	}
-	else if(i==0+4 || i==5+4 || i==10+4 || i==15+4) {
-		document.getElementsByClassName("priceInput")[i].value = 1250;
-		prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
-	}
-}
+if(typeof Storage == undefined) assignDefaultPrices();
+else assignPricesFromStorage();
 
 for(var i=0; i<resCost.length; i++) {
 	resCost[i] = 0;
@@ -59,11 +39,6 @@ for(var i=0; i<document.getElementsByClassName("cost res").length; i++) {
 	}
 }
 
-document.getElementsByClassName("gemRelicPriceTextarea")[0].value = 1500000;
-gemPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[0].value);
-document.getElementsByClassName("gemRelicPriceTextarea")[1].value = 80000;
-relicPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[1].value);
-
 document.getElementsByClassName("profitText")[0].innerHTML = "Min : "+gemMin+" x "+gemPrice+" = "+gemMin*gemPrice;
 document.getElementsByClassName("profitText")[1].innerHTML = "Max : "+gemMax+" x "+gemPrice+" = "+gemMax*gemPrice;
 document.getElementsByClassName("profitText")[2].innerHTML = "Avg : "+(gemMin*gemPrice + gemMax*gemPrice) / 2;
@@ -75,25 +50,21 @@ document.getElementsByClassName("profitText")[7].innerHTML = "Max : "+(gemMax*ge
 document.getElementsByClassName("profitText")[8].innerHTML = "Avg : "+((gemMin*gemPrice + relicMin*relicPrice - totalCost)+(gemMax*gemPrice + relicMax*relicPrice - totalCost))/2;
 
 for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
-	document.getElementsByClassName("priceInput")[i].onchange = function () {calculate();};
+	document.getElementsByClassName("priceInput")[i].onchange = function () {
+		calculate();
+		updateLocalStorage();
+	};
+}
+
+for(var i=0; i<document.getElementsByClassName("gemRelicPriceTextarea").length; i++) {
+	document.getElementsByClassName("gemRelicPriceTextarea")[i].onchange = function () {
+		calculate();
+		updateLocalStorage();
+	};
 }
 
 for(var i=0; i<document.getElementsByClassName("buttonControl").length; i++) {
 	giveFunction(document.getElementsByClassName("buttonControl")[i], i);
-}
-
-function giveFunction(elem, num) {
-	elem.onclick = function () {
-		if     (num==0) adventureLevel++;
-		else if(num==1) adventureLevel--;
-		else if(num==2) weaponLevel++;
-		else if(num==3) weaponLevel--;
-		else if(num==4) armorLevel++;
-		else if(num==5) armorLevel--;
-		else if(num==6) survivalLevel++;
-		else if(num==7) survivalLevel--;
-		calculate();
-	};
 }
 
 function calculate() {
@@ -243,14 +214,73 @@ function calculate() {
 	document.getElementsByClassName("profitText")[8].innerHTML = "Avg : "+((gemMin*gemPrice + relicMin*relicPrice - totalCost)+(gemMax*gemPrice + relicMax*relicPrice - totalCost))/2;
 }
 
+function assignDefaultPrices() {
+	for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
+		if(i==0 || i==5 || i==10 || i==15) {
+			document.getElementsByClassName("priceInput")[i].value = 50;
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+		else if(i==0+1 || i==5+1 || i==10+1 || i==15+1) {
+			document.getElementsByClassName("priceInput")[i].value = 100;
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+		else if(i==0+2 || i==5+2 || i==10+2 || i==15+2) {
+			document.getElementsByClassName("priceInput")[i].value = 250;
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+		else if(i==0+3 || i==5+3 || i==10+3 || i==15+3) {
+			document.getElementsByClassName("priceInput")[i].value = 750;
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+		else if(i==0+4 || i==5+4 || i==10+4 || i==15+4) {
+			document.getElementsByClassName("priceInput")[i].value = 1250;
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+	}
+	document.getElementsByClassName("gemRelicPriceTextarea")[0].value = 1500000;
+	gemPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[0].value);
+	document.getElementsByClassName("gemRelicPriceTextarea")[1].value = 80000;
+	relicPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[1].value);
+	console.log("Default values has been loaded.");
+}
 
+function assignPricesFromStorage() {
+	if(localStorage.prices0 == undefined) assignDefaultPrices();
+	else {
+		for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
+			document.getElementsByClassName("priceInput")[i].value = Number(localStorage.getItem("prices"+i));
+			prices[i] = Number(document.getElementsByClassName("priceInput")[i].value);
+		}
+		document.getElementsByClassName("gemRelicPriceTextarea")[0].value = Number(localStorage.getItem("gemPrice"));
+		gemPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[0].value);
+		document.getElementsByClassName("gemRelicPriceTextarea")[1].value = Number(localStorage.getItem("relicPrice"));
+		relicPrice = Number(document.getElementsByClassName("gemRelicPriceTextarea")[1].value);
+		console.log("Values from local storage has been loaded.");
+	}
+}
 
+function updateLocalStorage() {
+	for(var i=0; i<document.getElementsByClassName("priceInput").length; i++) {
+		localStorage.setItem("prices"+i, document.getElementsByClassName("priceInput")[i].value);
+	}
+	localStorage.setItem("gemPrice", document.getElementsByClassName("gemRelicPriceTextarea")[0].value);
+	localStorage.setItem("relicPrice", document.getElementsByClassName("gemRelicPriceTextarea")[1].value);
+	console.log("Values in local storage has been updated.");
+}
 
-
-
-
-
-
+function giveFunction(elem, num) {
+	elem.onclick = function () {
+		if     (num==0) adventureLevel++;
+		else if(num==1) adventureLevel--;
+		else if(num==2) weaponLevel++;
+		else if(num==3) weaponLevel--;
+		else if(num==4) armorLevel++;
+		else if(num==5) armorLevel--;
+		else if(num==6) survivalLevel++;
+		else if(num==7) survivalLevel--;
+		calculate();
+	};
+}
 
 
 
